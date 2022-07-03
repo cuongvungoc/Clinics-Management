@@ -32,14 +32,14 @@ public class VaccineDAO {
             connection = DatabaseUtils.getDBConnect();; //try-catch
             
             //query
-            String sql = "select * from ltnc.vaccine";
+            String sql = "select * from sql6468084.vaccine";
             statement = connection.createStatement();
             
             ResultSet resultSet = statement.executeQuery(sql);
             
             while (resultSet.next()) {                
                 Vaccine vac = new Vaccine(
-                        resultSet.getInt("id"), 
+                        resultSet.getString("id"), 
                         resultSet.getString("type"), 
                         resultSet.getString("quanlity"), 
                         resultSet.getString("lo"), 
@@ -76,10 +76,10 @@ public class VaccineDAO {
         
         try {
             //lay tat ca danh sach sinh vien
-            //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ltnc? zeroDateTimeBehavior = round", "root", "haihai20");
+            //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sql6468084? zeroDateTimeBehavior = round", "root", "haihai20");
             connection = DatabaseUtils.getDBConnect();
             //query
-            String sql = "insert into ltnc.vaccine(type, quanlity, lo, date) values(?, ?, ?, ?)";
+            String sql = "insert into sql6468084.vaccine(type, quanlity, lo, date) values(?, ?, ?, ?)";
             statement = connection.prepareCall(sql);
             
             statement.setString(1, vac.getVaccineName());
@@ -119,14 +119,14 @@ public class VaccineDAO {
             connection = DatabaseUtils.getDBConnect();
             
             //query
-            String sql = "update ltnc.vaccine set type=?,quanlity=?,lo=?,date=? where id = ?";
+            String sql = "update sql6468084.vaccine set type=?,quanlity=?,lo=?,date=? where id = ?";
             statement = connection.prepareCall(sql);
             
             statement.setString(1, vac.getVaccineName());
             statement.setString(2, vac.getVaccineQuanlity());
             statement.setString(3, vac.getVaccineLo());
             statement.setString(4, vac.getVaccineDate());
-            statement.setInt(5, vac.getId());
+            statement.setString(5, vac.getId());
             
             statement.execute();
         } catch (SQLException ex) {
@@ -151,15 +151,15 @@ public class VaccineDAO {
         //ket thuc.
     }
     
-    public static void delete(int id) {
+    public static void delete(String id) {
         Connection connection = null;
         PreparedStatement statement = null;
         
         try {
             connection = DatabaseUtils.getDBConnect();
-            String sql = "delete from ltnc.vaccine where id=?";
+            String sql = "delete from sql6468084.vaccine where id=?";
             statement = connection.prepareCall(sql);
-            statement.setInt(1, id);
+            statement.setString(1, id);
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(VaccineDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -188,11 +188,11 @@ public class VaccineDAO {
         PreparedStatement statement = null;
         
         try {
-            //lay tat ca danh sach sinh vien
+            //lay tat ca danh sach vaccine
             connection = DatabaseUtils.getDBConnect();
             
             //query
-            String sql = "select * from ltnc.vaccine where lo like ?";
+            String sql = "select * from sql6468084.vaccine where lo like ?";
             statement = connection.prepareCall(sql);
             statement.setString(1, "%" + vaccineLo  + "%");
             
@@ -200,7 +200,7 @@ public class VaccineDAO {
             
             while (resultSet.next()) {                
                 Vaccine vac = new Vaccine(
-                        resultSet.getInt("id"), 
+                        resultSet.getString("id"), 
                         resultSet.getString("type"), 
                         resultSet.getString("quanlity"), 
                         resultSet.getString("lo"), 

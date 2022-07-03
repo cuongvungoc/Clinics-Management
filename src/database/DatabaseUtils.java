@@ -20,7 +20,7 @@ public class DatabaseUtils {
         try{
             Connection con = null;
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ltnc? zeroDateTimeBehavior = round", "root", "123456");
+            con = DriverManager.getConnection("jdbc:mysql://sql6.freemysqlhosting.net:3306/sql6468084? zeroDateTimeBehavior = round", "sql6468084", "EwyHFYlRN6");
             return con;
             
         }catch(ClassNotFoundException ex){

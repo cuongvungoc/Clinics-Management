@@ -28,6 +28,8 @@ public class KbytDialog extends javax.swing.JFrame {
     }
     
     PeopleList p1 = new PeopleList();
+
+   
     public void fillDataTable(){
         DefaultTableModel model = (DefaultTableModel)table_people.getModel();
         model.setRowCount(0); //Clear table
@@ -88,6 +90,8 @@ public class KbytDialog extends javax.swing.JFrame {
         Label_VictimInfo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_people = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -298,7 +302,7 @@ public class KbytDialog extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Label_VictimInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Label_VictimInfo.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         Label_VictimInfo.setForeground(new java.awt.Color(0, 0, 204));
         Label_VictimInfo.setText("THÔNG TIN KHAI BÁO Y TẾ");
 
@@ -320,21 +324,32 @@ public class KbytDialog extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(table_people);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/qr_kbyt3.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel3.setText("Quét mã tại đây để khai báo online");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(313, Short.MAX_VALUE)
+                .addComponent(Label_VictimInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(260, 260, 260))
             .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addComponent(Panel_Declare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Panel_Declare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(Label_VictimInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,10 +357,15 @@ public class KbytDialog extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(Label_VictimInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Panel_Declare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Panel_Declare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
         );
 
         pack();
@@ -447,7 +467,7 @@ public class KbytDialog extends javax.swing.JFrame {
         // TODO add your handling code here:
         String id_search = txt_cccd.getText();
         if(id_search.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Nhập ID của nhân viên bạn muốn tìm kiếm !");
+            JOptionPane.showMessageDialog(this, "Nhập số CCCD của người bạn muốn tìm kiếm !");
         }else{
             People peo = p1.getPeopleByCccd(id_search);
             if(peo == null){
@@ -531,8 +551,9 @@ public class KbytDialog extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 KbytDialog kbyt = new KbytDialog();
-                kbyt.setVisible(true);
                 kbyt.fillDataTable();
+                kbyt.setVisible(true);
+                
             }
         });
     }
@@ -557,6 +578,8 @@ public class KbytDialog extends javax.swing.JFrame {
     private javax.swing.JButton btn_search;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

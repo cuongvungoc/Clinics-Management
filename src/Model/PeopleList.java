@@ -21,7 +21,7 @@ public class PeopleList {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try{
-            String sSQL = "insert into ltnc.kbyt(name, age, gender, nationality, cccd, phone_number, address, note, vaccine) values(?,?,?,?,?,?,?,?,?)";
+            String sSQL = "insert into sql6468084.kbyt(name, age, gender, nationality, cccd, phone_number, address, note, vaccine) values(?,?,?,?,?,?,?,?,?)";
             conn = DatabaseUtils.getDBConnect();
             pstmt = conn.prepareStatement(sSQL);
             pstmt.setString(1, peo.getName());
@@ -56,7 +56,7 @@ public class PeopleList {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try{
-        String sSQL = "update ltnc.kbyt set name = ?, age = ?,  nationality = ?, cccd = ?, phone_number = ?, address = ?, note = ?, vaccine = ?, where cccd = ?";
+        String sSQL = "update sql6468084.kbyt set name = ?, age = ?,  nationality = ?, cccd = ?, phone_number = ?, address = ?, note = ?, vaccine = ?, where cccd = ?";
         conn = DatabaseUtils.getDBConnect();
             pstmt = conn.prepareStatement(sSQL);
             pstmt.setString(1, peo.getName());
@@ -92,7 +92,7 @@ public class PeopleList {
         Statement sttm = null;
         ResultSet rs = null;
         try{
-            String sSQL = "select * from ltnc.kbyt";
+            String sSQL = "select * from sql6468084.kbyt";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
@@ -107,10 +107,7 @@ public class PeopleList {
                 peo.setAddress(rs.getString(7));
                 peo.setNote(rs.getString(8));
                 peo.setVaccine(rs.getString(9));
-                /*Staff stf = new Staff(rs.getString("ID"), 
-                        rs.getString("FullName"), rs.getDate("Birthday"), 
-                        rs.getBoolean("Sex"), rs.getString("PhoneNumber"), 
-                        rs.getString("position"), rs.getString("Ca"));*/
+                
                 ls.add(peo);
             }
         }catch(Exception e){
@@ -132,7 +129,7 @@ public class PeopleList {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "delete from ltnc.kbyt where cccd = ?";
+            String sSQL = "delete from sql6468084.kbyt where cccd = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, cccd);
@@ -160,7 +157,7 @@ public class PeopleList {
         ResultSet rs = null;
         People peo = new People();
         try{
-            String sSQL = "select * from ltnc.kbyt where cccd = ?";
+            String sSQL = "select * from sql6468084.kbyt where cccd = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, cccd);

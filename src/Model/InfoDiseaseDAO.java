@@ -23,7 +23,7 @@ public class InfoDiseaseDAO {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "insert into ltnc.infodisease(ID, fullname, age, gender, nationality, cccd, phone, address, Fn, dose) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sSQL = "insert into sql6468084.infodisease(ID, fullname, age, gender, nationality, cccd, phone, address, Fn, dose) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             
@@ -60,7 +60,7 @@ public class InfoDiseaseDAO {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "update ltnc.infodisease set fullname = ?, age = ?,  gender = ?, nationality = ?, cccd = ?, phone = ?, address = ?, Fn = ?, dose = ? where ID = ?";
+            String sSQL = "update sql6468084.infodisease set fullname = ?, age = ?,  gender = ?, nationality = ?, cccd = ?, phone = ?, address = ?, Fn = ?, dose = ? where ID = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(10, info.getID());
@@ -95,7 +95,7 @@ public class InfoDiseaseDAO {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "delete from ltnc.infodisease where ID = ?";
+            String sSQL = "delete from sql6468084.infodisease where ID = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, id);
@@ -123,7 +123,7 @@ public class InfoDiseaseDAO {
         Statement sttm = null;
         ResultSet rs = null;
         try{
-            String sSQL = "SELECT * FROM ltnc.infodisease";
+            String sSQL = "SELECT * FROM sql6468084.infodisease";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
@@ -162,7 +162,7 @@ public class InfoDiseaseDAO {
         ResultSet rs = null;
         InfoDiease info = new InfoDiease();
         try{
-            String sSQL = "select * from ltnc.infodisease where ID = ?";
+            String sSQL = "select * from sql6468084.infodisease where ID = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, id);

@@ -11,7 +11,7 @@ package Model;
 public class User {
     private String username;
     private String password;
-    private boolean role;
+//    private boolean role;
 
     public User() {
     }
@@ -19,7 +19,7 @@ public class User {
     public User(String username, String password, boolean role) {
         this.username = username;
         this.password = password;
-        this.role = role;
+//        this.role = role;
     }
 
     public String getUsername() {
@@ -38,12 +38,12 @@ public class User {
         this.password = password;
     }
 
-    public boolean isRole() {
-        return role;
-    }
-
-    public void setRole(boolean role) {
-        this.role = role;
-    }
+//    public boolean isRole() {
+//        return role;
+//    }
+//
+//    public void setRole(boolean role) {
+//        this.role = role;
+//    }
     
 }

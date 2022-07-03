@@ -446,8 +446,9 @@ public class StaffDialog extends javax.swing.JDialog {
                         System.exit(0);
                     }
                 });
-                dialog.setVisible(true);
                 dialog.fillDataTable();
+                dialog.setVisible(true);
+                
             }
         });
     }

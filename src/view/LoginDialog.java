@@ -180,6 +180,7 @@ public class LoginDialog extends javax.swing.JDialog {
         if(checkValidateForm()){
             String username = txtUsername.getText();
             String password = new String(txtPassword.getPassword());
+            System.out.println(password);
             UserList ul = new UserList();
             if(ul.checkLogin(username, password)){
                 MainFrame main = new MainFrame();

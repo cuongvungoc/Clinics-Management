@@ -16,13 +16,6 @@ import java.sql.SQLException;
  * @author ADMIN
  */
 public class UserList {
-    /*List<User> ls = new ArrayList<>();
-
-    public UserList() {
-        ls.add(new User("admin", "123", true));
-        ls.add(new User("ad", "123", true));
-        ls.add(new User("abc", "345", true));
-    }*/
     
     public User getUserById(String username){
         Connection conn = null;
@@ -30,7 +23,7 @@ public class UserList {
         ResultSet rs = null;
         User usr = new User();
         try{
-            String sSQL = "SELECT * FROM ltnc.user where username = ?";
+            String sSQL = "SELECT * FROM sql6468084.user where username = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, username);
@@ -38,7 +31,7 @@ public class UserList {
             while (rs.next()){
                 usr.setUsername(rs.getString(1));
                 usr.setPassword(rs.getString(2));
-                usr.setRole(rs.getBoolean(3));
+//                usr.setRole(rs.getBoolean(3));
                 
                 return usr;
             }
@@ -67,12 +60,5 @@ public class UserList {
         
         return false;
     }
-    /*public boolean checkLogin(String username, String password){
-        for(User u:ls){
-            if(u.getUsername().equals(username)&&u.getPassword().equals(password)){
-                return true;
-            }
-        }
-        return false;
-    }*/
+
 }

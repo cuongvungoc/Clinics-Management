@@ -9,7 +9,7 @@ package Model;
  * @author ADMIN
  */
 public class Vaccine {
-    private int id;
+    private String id;
     private String vaccineName;
     private String vaccineQuanlity;
     private String vaccineLo;
@@ -19,7 +19,7 @@ public class Vaccine {
         
     }
 
-    public Vaccine(int id, String vaccineName, String vaccineQuanlity, String vaccineLo, String vaccineDate) {
+    public Vaccine(String id, String vaccineName, String vaccineQuanlity, String vaccineLo, String vaccineDate) {
         this.id = id;
         this.vaccineName = vaccineName;
         this.vaccineQuanlity = vaccineQuanlity;
@@ -34,11 +34,11 @@ public class Vaccine {
         this.vaccineDate = vaccineDate;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

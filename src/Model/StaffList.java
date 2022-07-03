@@ -33,7 +33,7 @@ public class StaffList {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "insert into ltnc.staff(ID, FullName, Birthday, Gender, PhoneNumber, Position, Ca) values(?, ?, ?, ?, ?, ?, ?)";
+            String sSQL = "insert into sql6468084.staff(ID, FullName, Birthday, Gender, PhoneNumber, Position, Ca) values(?, ?, ?, ?, ?, ?, ?)";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, stf.getId());
@@ -65,7 +65,7 @@ public class StaffList {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "update ltnc.staff set FullName = ?, Birthday = ?,  Sex = ?, PhoneNumber = ?, position = ?, ca = ? where ID = ?";
+            String sSQL = "update sql6468084.staff set FullName = ?, Birthday = ?,  Sex = ?, PhoneNumber = ?, position = ?, ca = ? where ID = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(7, stf.getId());
@@ -97,7 +97,7 @@ public class StaffList {
         Connection conn = null;
         PreparedStatement sttm = null;
         try{
-            String sSQL = "delete from ltnc.staff where ID = ?";
+            String sSQL = "delete from sql6468084.staff where ID = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, id);
@@ -125,7 +125,7 @@ public class StaffList {
         Statement sttm = null;
         ResultSet rs = null;
         try{
-            String sSQL = "select * from ltnc.staff";
+            String sSQL = "select * from sql6468084.staff";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.createStatement();
             rs = sttm.executeQuery(sSQL);
@@ -164,7 +164,7 @@ public class StaffList {
         ResultSet rs = null;
         Staff stf = new Staff();
         try{
-            String sSQL = "select * from ltnc.staff where ID = ?";
+            String sSQL = "select * from sql6468084.staff where ID = ?";
             conn = DatabaseUtils.getDBConnect();
             sttm = conn.prepareStatement(sSQL);
             sttm.setString(1, id);
